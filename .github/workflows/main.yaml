@@ -18,13 +18,13 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Preparing backend image
-        working-directory: ./src/backend
+        working-directory: ./todo
         run: docker build -t ${{ github.event.repository.name }}-backend -f ./Dockerfile .
 
       - name: Tagging backend image
-        working-directory: ./src/backend
+        working-directory: ./todo
         run: docker image tag ${{ github.event.repository.name }}-backend ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}-backend:latest
 
       - name: Pushing backend image
-        working-directory: ./src/backend
+        working-directory: ./todo
         run: docker push ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}-backend:latest
