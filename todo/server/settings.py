@@ -74,15 +74,15 @@ MIDDLEWARE = [
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
         'APP': {
-            'client_id': 'Ov23liOIMvBsFeAAxdbM',
-            'secret': 'cc9c5354eb1428ba0ecaed54aa97f5e3597642ef',
+            'client_id': env("CLIENT_ID_GITHUB"),
+            'secret': env("SECRET_ID_GITHUB"),
             'key': ''
         }
     }, 
     'google': {
         'APP': {
-            'client_id': '116449233021-2o18vne6bq3boaram9g5hp16kviq304t.apps.googleusercontent.com',
-            'secret': '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',
+            'client_id': env("CLIENT_ID_GOOGLE"),
+            'secret': env("SECRET_ID_GOOGLE"),
             'key': ''
         }
     },
