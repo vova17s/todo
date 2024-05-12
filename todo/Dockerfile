@@ -1,4 +1,4 @@
-FROM python:3.10-alpine as builder
+FROM python:3.12-alpine as builder
 
 WORKDIR /app
 
@@ -10,7 +10,7 @@ RUN apk add --no-cache --virtual .build-deps gcc python3-dev musl-dev postgresql
 COPY ./requirements.txt .
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements.txt
 
-FROM python:3.11-alpine
+FROM python:3.12-alpine
 
 WORKDIR /app
 
