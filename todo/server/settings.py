@@ -23,97 +23,96 @@ DEBUG = bool(int(env("DEBUG")))
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "0.0.0.0",
+    "todo.labofdev.ru",
 ]
 
-# CSRF_TRUSTED_ORIGINS = [
-#     "https://api.labofdev.ru",
-#     "https://api.localhost",
-#     "https://labofdev.ru",
-#     "http://api.labofdev.ru",
-#     "http://api.localhost",
-#     "http://labofdev.ru",
-# ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://labofdev.ru",
+    "http://todo.labofdev.ru",
+    "http://api.localhost",
+    "http://labofdev.ru",
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
     # 1st party apps
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',
-    #2nd party apps
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.google',
-    #3d party apps
-    'post',
-    'task',
-    'user',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",
+    # 2nd party apps
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+    "allauth.socialaccount.providers.google",
+    # 3d party apps
+    "post",
+    "task",
+    "user",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    # 'corsheaders.middleware.CorsMiddleware',  # cors headers
-    'django.middleware.common.CommonMiddleware',
-    # "whitenoise.middleware.WhiteNoiseMiddleware",  # whitenoise
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    # "corsheaders.middleware.CorsMiddleware",  # cors headers
+    "django.middleware.common.CommonMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # whitenoise
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        'APP': {
-            'client_id': env("CLIENT_ID_GITHUB"),
-            'secret': env("SECRET_ID_GITHUB"),
-            'key': ''
+    "github": {
+        "APP": {
+            "client_id": env("CLIENT_ID_GITHUB"),
+            "secret": env("SECRET_ID_GITHUB"),
+            "key": "",
         }
-    }, 
-    'google': {
-        'APP': {
-            'client_id': env("CLIENT_ID_GOOGLE"),
-            'secret': env("SECRET_ID_GOOGLE"),
-            'key': ''
+    },
+    "google": {
+        "APP": {
+            "client_id": env("CLIENT_ID_GOOGLE"),
+            "secret": env("SECRET_ID_GOOGLE"),
+            "key": "",
         }
     },
 }
 
 # ACCOUNT_DEFAULT_HTTP_PROTOCOL='https'
-ROOT_URLCONF = 'server.urls'
+ROOT_URLCONF = "server.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'server.wsgi.application'
+WSGI_APPLICATION = "server.wsgi.application"
 
 if DEBUG:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
         }
     }
 else:
@@ -130,24 +129,24 @@ else:
 
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 AUTH_USER_MODEL = "user.User"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -155,9 +154,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -168,21 +167,24 @@ SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
 # # STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    '/var/todo/static/',
+    "/var/todo/static/",
 ]
-MEDIA_ROOT = BASE_DIR / 'media/'
-MEDIA_URL = '/media/'
-LOGIN_REDIRECT_URL = 'home'
-ACCOUNT_FORMS = {'signup': 'user.forms.CustomUserCreationForm'}
-LOGOUT_REDIRECT_URL = 'home'
+MEDIA_ROOT = BASE_DIR / "media/"
+MEDIA_URL = "/media/"
+LOGIN_REDIRECT_URL = "home"
+ACCOUNT_FORMS = {"signup": "user.forms.CustomUserCreationForm"}
+LOGOUT_REDIRECT_URL = "home"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "none"
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CORS_ALLOW_ALL_ORIGINS = True
