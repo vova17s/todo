@@ -1,4 +1,3 @@
-import os
 from os import getenv as env
 from pathlib import Path
 
@@ -167,11 +166,10 @@ SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
-# # STATIC_URL = "/static/"
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    "/var/todo/static/",
+    STATIC_ROOT / "pages",
 ]
 MEDIA_ROOT = BASE_DIR / "media/"
 MEDIA_URL = "/media/"
