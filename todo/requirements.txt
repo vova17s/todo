@@ -21,3 +21,4 @@ urllib3==2.2.1
 psycopg2-binary
 whitenoise
 django-cors-headers
+gunicorn
