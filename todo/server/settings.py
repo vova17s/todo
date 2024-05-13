@@ -21,6 +21,7 @@ DEBUG = bool(int(env("DEBUG")))
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
+    "localhost",
     "0.0.0.0",
     "todo.labofdev.ru",
 ]
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     "post",
     "task",
     "user",
+    "pages",
 ]
 
 MIDDLEWARE = [
