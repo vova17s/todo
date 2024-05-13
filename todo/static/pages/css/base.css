@@ -112,7 +112,10 @@ section {
 
 body {
   line-height: 1;
-  height: 100vh;
+  height: 100dvh;
+  width: 100dvw;
+  max-height: 100dvh;
+  max-width: 100dvw;
   margin: 0px;
   padding: 0px;
 }
@@ -138,4 +141,27 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.text__default {
+  color: #000;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.button__default {
+  cursor: pointer;
+
+  background-color: #fff;
+
+  border-radius: 8px;
+  outline: none;
+  border: 1.5px solid #000;
 }

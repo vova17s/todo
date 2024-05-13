@@ -1,0 +1,41 @@
+{% extends '_base.html' %} {% load static allauth account %}
+<!-- prettier-ignore -->
+
+{% load static %}
+<!-- prettier-ignore -->
+{% block static %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
+{% endblock static %}
+
+<!-- prettier-ignore -->
+{% block title %}
+  Log in | Home
+{% endblock title %}
+
+<!-- prettier-ignore -->
+
+{% block root %}
+<p>
+  <!-- prettier-ignore -->
+  If you have not created an account yet, then please {{ link }}sign up{{ end_link }} first.
+</p>
+
+<!-- prettier-ignore -->
+{% url 'account_login' as login_url %}
+{% element form form=form method="post" action=login_url tags="entrance,login" %}
+  {% slot body %}
+    {% csrf_token %}
+    {% element fields form=form unlabeled=True class="zalupa" %}
+    asdf
+    {% endelement %}
+  {% endslot %}
+<!-- prettier-ignore -->
+{% slot actions %}
+<button class="button__default">Sign in</button>
+{% endslot %}
+
+<!-- prettier-ignore -->
+{% endelement %}
+<!-- prettier-ignore -->
+{% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+{% endblock root %}

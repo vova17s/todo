@@ -1,3 +1,56 @@
-body {
-  background-color: black;
+#root {
+  display: grid;
+  grid-template-rows: 70px 1fr;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10%;
+  background-color: #fff;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.head__home {
+  height: 100%;
+  background-color: #fff;
+}
+
+.link__header__login,
+.header-button__login {
+  margin-top: 5px;
+  height: 40px;
+  width: 100px;
+}
+
+.text-head {
+  & > h1 {
+    font-size: 48px;
+    font-weight: 500;
+  }
+
+  & > * {
+    margin-bottom: 20px;
+  }
+}
+
+.head__home {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  width: 100%;
+  padding: 20px 10%;
+  align-items: center;
+  justify-items: center;
+}
+
+.header-button__preview {
+  height: 60px;
+  width: 200px;
 }
