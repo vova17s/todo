@@ -1,0 +1,34 @@
+.card-post {
+  width: 300px;
+  max-width: 300px;
+
+	box-shadow: 0px 0px 10px black;
+	border-radius: 10px 10px 0px 0px;
+
+	overflow: clip;
+
+	padding-bottom: 10px;
+
+	& > div {
+		width: 100%;
+	}
+}
+
+.card-post-img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+
+.card-post-time {
+	text-align: end;
+}
+
+.card-post-text, .card-post-time {
+	padding: 0px 5px;
+}
+
+.card-post-text,
+.card-post-img-container {
+	margin-bottom: 10px;
+}

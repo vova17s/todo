@@ -19,4 +19,4 @@ class Post(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.PROTECT)
     
     def __str__(self) -> str:
-        return str()
+        return str(self.title)

@@ -3,6 +3,7 @@
 
 {% block static %}
 <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+<link rel="stylesheet" href="{% static 'css/posts.css' %}" />
 {% endblock static %}
 
 {% block title %}
@@ -11,4 +12,17 @@
 
 {% block root %}
 {% include "components/header.html" %}
+<main>
+  <h1>Oue posts</h1>
+  <section>
+    {% for post in posts %}
+      <div class="card-post">
+        <div class="card-post-img-container"><img class="card-post-img" src="{{ post.preview.url }}" alt="" /></div>
+        <div class="card-post-text flex__center">{{ post.title }}</div>
+        <div class="card-post-text">{{ post.description|truncatechars:20 }}</div>
+        <div class="card-post-time">{{ post.create_time }}</div>
+      </div>
+    {% endfor %}
+  </section>
+</main>
 {% endblock root %}
