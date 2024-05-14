@@ -173,14 +173,16 @@ STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = [
     STATIC_ROOT / "pages",
 ]
+
 MEDIA_ROOT = BASE_DIR / "media/"
 MEDIA_URL = "/media/"
-LOGIN_REDIRECT_URL = "home"
+
+LOGIN_REDIRECT_URL = "homepage"
 ACCOUNT_FORMS = {
     "signup": "user.forms.CustomUserCreationForm",
     "login": "user.forms.MyCustomLoginForm",
 }
-LOGOUT_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "homepage"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "none"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"

@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block static %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}" />
+{% endblock static %}
+
+{% block title %}
+  Tasks | To Do
+{% endblock title %}
+
+{% block root %}
+{% include "components/header.html" %}
+{% endblock root %}

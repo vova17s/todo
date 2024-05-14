@@ -54,3 +54,7 @@ header {
   height: 60px;
   width: 200px;
 }
+
+.img-head {
+  justify-self: end;
+}

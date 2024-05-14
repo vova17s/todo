@@ -12,25 +12,7 @@
 {% endblock title %}
 
 {% block root %}
-<header>
-  <div class="logo">
-    <img src="{% static 'public/favicon.svg' %}" alt="" />
-  </div>
-
-  <div class="header-links">
-    <a href="{% url 'all_task' %}" class="link__header text__default">Manage</a>
-    <a href="{% url 'all_task' %}" class="link__header text__default">Task</a>
-    <a href="{% url 'all_task' %}" class="link__header text__default">
-      Try product
-    </a>
-  </div>
-
-  <a href="{% url 'account_login' %}" class="link__header__login">
-    <button class="header-button__login button__default text__default">
-      Login
-    </button>
-  </a>
-</header>
+{% include "components/header.html" %}
 <section class="head__home">
   <div class="text-head">
     <h1 class="text__default">One app for your big business</h1>
