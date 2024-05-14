@@ -21,6 +21,7 @@ DEBUG = bool(int(env("DEBUG")))
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
+    "localhost",
     "0.0.0.0",
     "todo.labofdev.ru",
 ]
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     "post",
     "task",
     "user",
+    "pages",
 ]
 
 MIDDLEWARE = [
@@ -174,7 +176,10 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = BASE_DIR / "media/"
 MEDIA_URL = "/media/"
 LOGIN_REDIRECT_URL = "home"
-ACCOUNT_FORMS = {"signup": "user.forms.CustomUserCreationForm"}
+ACCOUNT_FORMS = {
+    "signup": "user.forms.CustomUserCreationForm",
+    "login": "user.forms.MyCustomLoginForm",
+}
 LOGOUT_REDIRECT_URL = "home"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "none"

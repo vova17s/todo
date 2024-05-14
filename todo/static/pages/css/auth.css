@@ -1,0 +1,76 @@
+#root {
+  display: grid;
+  grid-template-rows: 72px auto;
+}
+
+main {
+  display: grid;
+  justify-content: center;
+
+  width: 100%;
+  align-content: center;
+  gap: 30px;
+}
+
+hr {
+  display: none;
+}
+
+.form__auth {
+  font-size: 14px;
+
+  & > div {
+    display: flex;
+    flex-flow: column wrap;
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+}
+
+.button__auth {
+  width: 100%;
+  height: 36px;
+}
+
+.link__social {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+}
+
+.container-img__social {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 7px;
+  box-shadow: 0px 0px 3px black;
+}
+
+.img__social {
+  height: 100%;
+  width: 100%;
+}
+
+.container-links__social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  height: 64px;
+}
+
+.container__social {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+
+  & > h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+}
+
+.form__remember {
+  flex-flow: row wrap !important;
+  align-items: center;
+}
