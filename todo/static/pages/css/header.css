@@ -1,0 +1,26 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10%;
+  background-color: #fff;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.head__home {
+  height: 100%;
+  background-color: #fff;
+}
+
+.link__header__login,
+.header-button__login {
+  margin-top: 5px;
+  height: 40px;
+  width: 100px;
+}

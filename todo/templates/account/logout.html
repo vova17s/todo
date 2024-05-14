@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block static %}
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+{% endblock static %}
+
+{% block title %}
+    Sign Out | To Do
+{% endblock title %}
+
+{% block root %}
+{% include 'components/header-non-auth.html' %}
+<main>
+    <h1 class="flex__center text__default">Sign Out</h1>
+    
+    <p class="flex__center text__default" style="height: fit-content;">Are you sure you want to sign out?</p>    
+
+    {% url 'account_logout' as action_url %}
+    <form action="{{ action_url }}" method="post">
+        {% csrf_token %}
+        {{ redirect_field }}
+        <button class="button__default button__auth" type="submit">Sign Out</button>
+    </form>
+</main>
+{% endblock root %}

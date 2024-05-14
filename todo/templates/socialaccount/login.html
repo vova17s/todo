@@ -1,0 +1,25 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block static %}
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+{% endblock static %}
+
+{% block title %}
+    Sign In with {{ provider }} | To Do
+{% endblock title %}
+
+{% block root %}
+{% include 'components/header-non-auth.html' %}
+<main>
+    <h1>
+        Sign In Via {{ provider }}
+    </h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit" class="button__default button__auth">Continue</button>
+    </form>
+</main>
+{% endblock root %}

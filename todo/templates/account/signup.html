@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block static %}
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+{% endblock static %}
+
+{% block title %}
+    Signup | To Do
+{% endblock title %}
+
+{% block root %}
+    {% include 'components/header-non-auth.html' %}
+    <main>
+        <p class="flex__center text__default" style="font-weight: 700;">Sign Up</p>
+
+        <p class="flex__center text__default">
+            Already have an account? Then please 
+            <a href="{{ login_url }}" style="color: inherit;">sign in</a>.
+        </p>
+    
+        {% url 'account_signup' as action_url %}
+        <form action="{{ action_url }}" method="post" class="form__auth text__default">
+            {% csrf_token %}
+            {{ form }}
+            {{ redirect_field }}
+            <button type="submit" class="button__default button__auth">
+                Sign Up
+            </button>
+        </form>
+    
+        {% include "components/social-login.html" %}
+    </main>
+{% endblock root %}

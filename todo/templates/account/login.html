@@ -1,41 +1,59 @@
-{% extends '_base.html' %} {% load static allauth account %}
-<!-- prettier-ignore -->
-
+{% extends "_base.html" %}
 {% load static %}
-<!-- prettier-ignore -->
+
 {% block static %}
-<link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
 {% endblock static %}
 
-<!-- prettier-ignore -->
 {% block title %}
-  Log in | Home
+  Sign in | To Do
 {% endblock title %}
 
-<!-- prettier-ignore -->
-
 {% block root %}
-<p>
-  <!-- prettier-ignore -->
-  If you have not created an account yet, then please {{ link }}sign up{{ end_link }} first.
-</p>
+  {% include 'components/header-non-auth.html' %}
+  <main>
+    <p class="flex__center text__default" style="font-weight: 700;">Sign In</p>
 
-<!-- prettier-ignore -->
-{% url 'account_login' as login_url %}
-{% element form form=form method="post" action=login_url tags="entrance,login" %}
-  {% slot body %}
-    {% csrf_token %}
-    {% element fields form=form unlabeled=True class="zalupa" %}
-    asdf
-    {% endelement %}
-  {% endslot %}
-<!-- prettier-ignore -->
-{% slot actions %}
-<button class="button__default">Sign in</button>
-{% endslot %}
+    <p class="flex__center text__default">
+      Have not an account? Then please
+      <a href="{% url 'account_signup' %}" style="color: inherit;">sign up</a>.
+    </p>
 
-<!-- prettier-ignore -->
-{% endelement %}
-<!-- prettier-ignore -->
-{% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+    {% url 'account_login' as action_url %}
+    <form action="{{ action_url }}" method="post" class="form__auth text__default">
+      {% csrf_token %}
+      <div>
+        <p>
+          {{ form.login.errors }}
+        </p>
+        <label>
+          {{ form.login.label }}
+        </label>
+        {{ form.login }}
+      </div>
+
+      <div>
+        <p>
+          {{ form.password.errors }}
+        </p>
+        <label>
+          {{ form.password.label }}
+        </label>
+        {{ form.password }}
+      </div>
+
+      <div class="form__remember">
+        <label>
+          {{ form.remember.label }}:
+        </label>
+        {{ form.remember }}
+      </div>
+      <button type="submit" class="button__default button__auth">
+        Sign In
+      </button>
+    </form>
+
+    {% include "components/social-login.html" %}
+  </main>
 {% endblock root %}

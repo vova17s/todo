@@ -165,3 +165,25 @@ table {
   outline: none;
   border: 1.5px solid #000;
 }
+
+.input__default {
+  background-color: #fff;
+
+  border-radius: 8px;
+  outline: none;
+  border: 1.5px solid #000;
+
+  height: 36px;
+
+  font-size: 14px;
+
+  padding: 0px 10px;
+}
+
+.flex__center {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-self: center;
+  align-items: center;
+  text-align: center;
+}
