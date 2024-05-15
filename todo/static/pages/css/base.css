@@ -195,9 +195,10 @@ table {
 nav {
   position: absolute;
   top: 0px;
-  left: -250px;
+  left: -270px;
   height: 100dvh;
   width: 250px;
+  max-width: 250px;
   padding-top: 10px;
   padding-left: 10%;
 
@@ -209,7 +210,7 @@ nav {
     left: 0px;
   }
 
-  & > .logo {
+  & > .nav-logo {
     display: flex;
     justify-content: space-between;
     align-items: center;

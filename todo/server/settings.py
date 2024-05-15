@@ -19,19 +19,9 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = bool(int(env("DEBUG")))
 
 
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    "0.0.0.0",
-    "todo.labofdev.ru",
-]
+ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://labofdev.ru",
-    "http://todo.labofdev.ru",
-    "http://api.localhost",
-    "http://labofdev.ru",
-]
+CSRF_TRUSTED_ORIGINS = ["http://*"]
 
 
 # Application definition
@@ -109,7 +99,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "server.wsgi.application"
 
-if DEBUG:
+if not DEBUG:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
