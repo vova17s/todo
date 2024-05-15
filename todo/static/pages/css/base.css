@@ -118,6 +118,10 @@ body {
   max-width: 100dvw;
   margin: 0px;
   padding: 0px;
+
+  &.open {
+    overflow: hidden;
+  }
 }
 
 ol,
@@ -186,4 +190,38 @@ table {
   justify-self: center;
   align-items: center;
   text-align: center;
+}
+
+nav {
+  position: absolute;
+  top: 0px;
+  left: -250px;
+  height: 100dvh;
+  width: 250px;
+  padding-top: 10px;
+  padding-left: 10%;
+
+  background-color: #fff;
+
+  transition: all 0.3s ease-in-out;
+
+  &.open {
+    left: 0px;
+  }
+
+  & > .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+  }
+}
+
+.nav-links {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+
+  margin-top: 20%;
+  width: 100%;
 }

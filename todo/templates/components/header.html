@@ -1,0 +1,37 @@
+{% load static %}
+
+<header>
+  <div class="logo">
+    <a href="{% url 'homepage' %}" class="link__header text__default">
+      <img src="{% static 'public/favicon.svg' %}" alt="" />
+    </a>
+  </div>
+
+  <div class="header-links">
+    <a href="{% url 'homepage' %}" class="link__header text__default"> Home </a>
+    <a href="{% url 'posts' %}" class="link__header text__default">Posts</a>
+    <a href="{% url 'all_task' %}" class="link__header text__default">Task</a>
+  </div>
+
+  {% if not request.user.is_authenticated %}
+  <a href="{% url 'account_login' %}" class="link__header__login">
+    <button class="header-button__login button__default text__default">
+      Login
+    </button>
+  </a>
+  {% else %}
+  <a href="{% url 'account_logout' %}" class="link__header__login">
+    <button class="header-button__login button__default text__default">
+      Logout
+    </button>
+  </a>
+  {% endif %}
+
+  <div class="burger-container" id="burger-container" onclick="toggleBurger()">
+    <div id="rect-1" class="block-rect"></div>
+    <div id="rect-2" class="block-rect"></div>
+    <div id="rect-3" class="block-rect"></div>
+  </div>
+
+  {% include 'components/navbar.html' %}
+</header>

@@ -22,7 +22,7 @@ class CreatePostView(PermissionRequiredMixin, CreateView):
 
 
 class AllPostView(ListView):
-    template_name = 'post/all_post.html'
+    template_name = 'posts.html'
     title_page = 'Все посты'
     context_object_name = 'posts'
     paginate_by = 20

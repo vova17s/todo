@@ -27,7 +27,7 @@ class CreateTaskView(CreateView):
 
 
 class AllTaskView(ListView):
-    template_name = 'task/all_task.html'
+    template_name = 'tasks.html'
     title_page = 'Все задачи'
     context_object_name = 'tasks'
     paginate_by = 20
