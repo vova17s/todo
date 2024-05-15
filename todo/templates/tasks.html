@@ -3,6 +3,9 @@
 
 {% block static %}
 <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+<link rel="stylesheet" href="{% static 'css/task.css' %}" />
+<link rel="stylesheet" href="{% static 'css/task-bar.css' %}" />
+<link rel="stylesheet" href="{% static 'css/task-main.css' %}" />
 {% endblock static %}
 
 {% block title %}
@@ -11,4 +14,15 @@
 
 {% block root %}
 {% include "components/header.html" %}
+
+<main id="main">
+  {% include 'components/calendar-aside.html' %}
+  <section></section>
+</main>
+
 {% endblock root %}
+
+
+{% block scripts %}
+  <script  src="{% static 'js/calendar/initialize.js' %}" type="module"></script>
+{% endblock scripts %}
