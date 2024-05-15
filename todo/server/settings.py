@@ -21,7 +21,19 @@ DEBUG = bool(int(env("DEBUG")))
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ["http://*"]
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8000",
+    "http://google.com",
+    "https://google.com",
+    "http://accounts.google.com",
+    "https://accounts.google.com",
+    "http://github.com",
+    "https://github.com",
+    "http://github.com",
+    "https://github.com",
+    "http://todo.labofdev.ru",
+    "https://todo.labofdev.ru",
+]
 
 
 # Application definition
