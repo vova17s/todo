@@ -27,9 +27,11 @@
   </a>
   {% endif %}
 
-  <div>
-    <img src="{% static 'public/burger.svg' %}" alt="" />
+  <div class="burger-container" id="burger-container" onclick="toggleBurger()">
+    <div id="rect-1" class="block-rect"></div>
+    <div id="rect-2" class="block-rect"></div>
+    <div id="rect-3" class="block-rect"></div>
   </div>
 
-  <!-- {% include 'components/navbar.html' %} -->
+  {% include 'components/navbar.html' %}
 </header>

@@ -1,11 +1,10 @@
-<svg width="58" height="35" viewBox="0 0 58 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="27" height="32" viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g filter="url(#filter0_d_47_60)">
-<rect x="4" width="50" height="7" rx="3.5" fill="black"/>
+<rect width="22.8824" height="3.20354" rx="1.60177" transform="matrix(0.725614 0.688102 -0.725614 0.688102 6.32454 0)" fill="black"/>
 </g>
-<rect x="4" y="14" width="50" height="7" rx="3.5" fill="black"/>
-<rect x="4" y="28" width="50" height="7" rx="3.5" fill="black"/>
+<rect width="22.8824" height="3.20354" rx="1.60177" transform="matrix(0.725614 -0.688102 0.725614 0.688102 4.07167 29.3965)" fill="black"/>
 <defs>
-<filter id="filter0_d_47_60" x="0" y="0" width="58" height="15" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_d_47_60" x="0.680847" y="0.645641" width="25.5667" height="24.6585" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>

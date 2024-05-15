@@ -1,23 +1,32 @@
 {% load static %}
 
-<nav>
+<nav id="navbar">
   <div class="logo">
     <a href="{% url 'homepage' %}" class="link__header text__default">
       <img src="{% static 'public/favicon.svg' %}" alt="" />
     </a>
+
+    <img
+      src="{% static 'public/arrow-black.svg' %}"
+      alt="arrow"
+      onclick="toggleBurger()"
+      style="cursor: pointer;"
+    />
   </div>
 
-  <a href="{% url 'homepage' %}" class="link__header text__default"> Home </a>
-  <a href="{% url 'posts' %}" class="link__header text__default">Posts</a>
-  <a href="{% url 'all_task' %}" class="link__header text__default">Task</a>
-
-  {% if not request.user.is_authenticated %}
-  <a href="{% url 'account_login' %}" class="link__header text__default">
-    Login
-  </a>
-  {% else %}
-  <a href="{% url 'account_logout' %}" class="link__header text__default">
-    Logout
-  </a>
-  {% endif %}
+  <section class="nav-links">
+    <a href="{% url 'homepage' %}" class="link__header text__default"> Home </a>
+    <a href="{% url 'posts' %}" class="link__header text__default">Posts</a>
+    <a href="{% url 'all_task' %}" class="link__header text__default">Task</a>
+  
+    {% if not request.user.is_authenticated %}
+    <a href="{% url 'account_login' %}" class="link__header text__default">
+      Login
+    </a>
+    {% else %}
+    <a href="{% url 'account_logout' %}" class="link__header text__default">
+      Logout
+    </a>
+    {% endif %}
+  </section>
 </nav>
