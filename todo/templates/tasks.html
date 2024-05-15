@@ -17,12 +17,12 @@
 
 <main id="main">
   {% include 'components/calendar-aside.html' %}
-  <section></section>
+  {% include 'components/calendar-main.html' %}
 </main>
 
 {% endblock root %}
 
 
 {% block scripts %}
-  <script  src="{% static 'js/calendar/initialize.js' %}" type="module"></script>
+  <script  src="{% static 'js/initialize.js' %}" type="module"></script>
 {% endblock scripts %}
