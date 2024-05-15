@@ -4,6 +4,7 @@
   grid-template-rows: 50px calc(100% - 50px);
 
   height: 100%;
+  max-height: calc(100dvh - 73px);
   width: 100%;
 }
 
@@ -23,4 +24,33 @@
 .tasks-body,
 .tasks-times {
   overflow-y: scroll;
+}
+
+.time__timeline {
+  border-top: 1px solid #000;
+  font-size: 12px;
+  height: 100px;
+}
+
+#tasks-titles,
+#tasks-body {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+#tasks-times {
+  height: 100%;
+}
+
+.task-title {
+  width: 100%;
+  text-align: center;
+  border-right: 1px solid #000;
+}
+
+.task-slot__timeline {
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  font-size: 12px;
+  height: 100px;
 }

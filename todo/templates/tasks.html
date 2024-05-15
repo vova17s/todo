@@ -2,27 +2,24 @@
 {% load static %}
 
 {% block static %}
-<link rel="stylesheet" href="{% static 'css/header.css' %}" />
-<link rel="stylesheet" href="{% static 'css/task.css' %}" />
-<link rel="stylesheet" href="{% static 'css/task-bar.css' %}" />
-<link rel="stylesheet" href="{% static 'css/task-main.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/task.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/task-bar.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/task-main.css' %}" />
 {% endblock static %}
 
-{% block title %}
-  Tasks | To Do
-{% endblock title %}
+{% block title %} Tasks | To Do {% endblock title %}
 
 {% block root %}
-{% include "components/header.html" %}
+  {% include "components/header.html" %}
 
-<main id="main">
-  {% include 'components/calendar-aside.html' %}
-  {% include 'components/calendar-main.html' %}
-</main>
+  <main id="main">
+    {% include 'components/calendar-aside.html' %}
+    {% include 'components/calendar-main.html' %}
+  </main>
 
 {% endblock root %}
 
-
 {% block scripts %}
-  <script  src="{% static 'js/initialize.js' %}" type="module"></script>
+  <script src="{% static 'js/pages/calendar.js' %}" type="module"></script>
 {% endblock scripts %}

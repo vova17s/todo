@@ -1,8 +1,8 @@
-import { currentDate, weekDays } from "./calendar/consts.js";
-import { getMonth, getNextDay, getPreviousDay } from "./lib/date.js";
-import { capitalize } from "./lib/text.js";
+import { weekDays } from "../calendar/consts.js";
+import { getMonth, getNextDay, getPreviousDay } from "../lib/date.js";
+import { capitalize } from "../lib/text.js";
 
-class RenderCalendar {
+export class RenderCalendar {
   constructor(currentDate) {
     this.currentDate = currentDate;
     this.monthData = getMonth(currentDate);
@@ -80,6 +80,3 @@ class RenderCalendar {
     weeksSlot.innerHTML = weeksData;
   }
 }
-
-const renderCalendar = new RenderCalendar(currentDate);
-renderCalendar.getPreviousDays().getNextDays().render();
