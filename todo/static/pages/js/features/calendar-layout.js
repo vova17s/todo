@@ -2,6 +2,12 @@ import { weekDays } from "../calendar/consts.js";
 import { getMonth, getNextDay, getPreviousDay } from "../lib/date.js";
 import { capitalize } from "../lib/text.js";
 
+/**
+ *
+ * Зарефачить календарь (калечно сделал)
+ *
+ * **/
+
 export class RenderCalendar {
   constructor(currentDate) {
     this.currentDate = currentDate;
@@ -9,16 +15,17 @@ export class RenderCalendar {
     this.prerenderDateData = [];
   }
 
-  getPreviousDays() {
+  _getPreviousDays() {
     let previousMonthCounter = this.monthData.month;
     let previousDayCounter = 1;
+    let dateData = [];
 
-    for (const _ of new Array(this.currentDate.getDay() - 1)) {
+    for (const _ of new Array(35 - this.prerenderDateData.length)) {
       const previousDayData = getPreviousDay(
         previousMonthCounter,
         previousDayCounter
       );
-      this.prerenderDateData.push({
+      dateData.push({
         day: previousDayData.day,
         month: previousDayData.month
       });
@@ -26,10 +33,12 @@ export class RenderCalendar {
       previousDayCounter = previousDayData.day;
     }
 
+    this.prerenderDateData = dateData.reverse();
+
     return this;
   }
 
-  getNextDays() {
+  _getNextDays() {
     let currentMonthCounter = this.monthData.month;
     let currentDayCounter = 0;
 
@@ -56,6 +65,8 @@ export class RenderCalendar {
 
     return "";
   }
+
+  createTimeline() {}
 
   render() {
     const monthSlot = document.getElementById("calendar-bar-month");

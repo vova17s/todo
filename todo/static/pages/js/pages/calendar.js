@@ -2,9 +2,7 @@ import { currentDate } from "../calendar/consts.js";
 import { RenderCalendar } from "../features/calendar-layout.js";
 import { Timeline } from "../features/timeline.js";
 
-const renderCalendar = new RenderCalendar(currentDate)
-  .getPreviousDays()
-  .getNextDays();
+const renderCalendar = new RenderCalendar(currentDate).createTimeline();
 const renderTimeline = new Timeline(currentDate).createTimeline();
 
 renderCalendar.render();
