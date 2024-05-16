@@ -1,18 +1,16 @@
 import { weekDays } from "../calendar/consts.js";
-import { getMonth, getNextDay, getPreviousDay } from "../lib/date.js";
+import {
+  countWeek,
+  getMonth,
+  getNextDay,
+  getPreviousDay
+} from "../lib/date.js";
 import { capitalize } from "../lib/text.js";
-
-/**
- *
- * Зарефачить календарь (калечно сделал)
- *
- * **/
 
 export class RenderCalendar {
   constructor(currentDate) {
     this.currentDate = currentDate;
     this.monthData = getMonth(currentDate);
-    this.prerenderDateData = [];
   }
 
   _getPreviousDays() {
@@ -20,7 +18,11 @@ export class RenderCalendar {
     let previousDayCounter = 1;
     let dateData = [];
 
-    for (const _ of new Array(35 - this.prerenderDateData.length)) {
+    let { index } = countWeek(
+      this.currentDate.getDay() - (this.currentDate.getDay() % 7) - 2
+    );
+
+    for (const _ of new Array(index)) {
       const previousDayData = getPreviousDay(
         previousMonthCounter,
         previousDayCounter
@@ -33,25 +35,23 @@ export class RenderCalendar {
       previousDayCounter = previousDayData.day;
     }
 
-    this.prerenderDateData = dateData.reverse();
-
-    return this;
+    return dateData.reverse();
   }
 
-  _getNextDays() {
+  _getNextDays(_timeline) {
     let currentMonthCounter = this.monthData.month;
     let currentDayCounter = 0;
 
-    while (this.prerenderDateData.length < 35) {
+    while (_timeline.length < 35) {
       const nextDayData = getNextDay(currentMonthCounter, currentDayCounter);
-      this.prerenderDateData.push({
+      _timeline.push({
         day: nextDayData.day,
         month: nextDayData.month
       });
       currentMonthCounter = nextDayData.month;
       currentDayCounter = nextDayData.day;
     }
-    return this;
+    return _timeline;
   }
 
   getClass(dateData) {
@@ -66,7 +66,9 @@ export class RenderCalendar {
     return "";
   }
 
-  createTimeline() {}
+  createTimeline() {
+    return this._getNextDays(this._getPreviousDays());
+  }
 
   render() {
     const monthSlot = document.getElementById("calendar-bar-month");
@@ -80,7 +82,7 @@ export class RenderCalendar {
       weeksData += `<div>${weekName[0].toUpperCase()}</div>`;
     }
 
-    for (const dateData of this.prerenderDateData) {
+    for (const dateData of this.createTimeline()) {
       daysData += `<div ${this.getClass(dateData)}>${dateData.day}</div>`;
     }
 

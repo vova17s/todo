@@ -50,7 +50,7 @@ export class Timeline {
       `;
       columnsString += "<div>";
       for (const _ of this._timeline) {
-        columnsString += `<div class="task-slot__timeline">${counter}</div>`;
+        columnsString += `<div class="task-slot__timeline">${counter} place</div>`;
       }
 
       columnsString += "</div>";

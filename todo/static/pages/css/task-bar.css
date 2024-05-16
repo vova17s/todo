@@ -60,3 +60,9 @@
   color: rgba(0, 0, 0, 0.4);
   font-weight: 300;
 }
+
+@media (max-width: 1200px) {
+  .calendar-bar {
+    display: none;
+  }
+}
