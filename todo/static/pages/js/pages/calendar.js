@@ -7,3 +7,7 @@ const renderTimeline = new Timeline(currentDate).createTimeline();
 
 renderCalendar.render();
 renderTimeline.render();
+
+window.addEventListener("resize", (event) => {
+  renderTimeline.render();
+});

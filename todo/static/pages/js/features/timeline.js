@@ -48,17 +48,18 @@ export class Timeline {
         <div class="text__default">${currentMonthCounter}</div>
       </div>
       `;
-      columnsString += "<div>";
-      for (const _ of this._timeline) {
-        columnsString += `<div class="task-slot__timeline">${counter} place</div>`;
-      }
-
-      columnsString += "</div>";
 
       const nextDayData = getNextDay(currentMonthCounter, currentDayCounter);
       currentMonthCounter = nextDayData.month;
       currentDayCounter = nextDayData.day;
+    }
 
+    for (const _ of [...new Array(window.innerWidth > 700 ? 5 : 1)]) {
+      columnsString += "<div>";
+      for (const _ of this._timeline) {
+        columnsString += `<div class="task-slot__timeline">${counter} place</div>`;
+      }
+      columnsString += "</div>";
       counter++;
     }
 
