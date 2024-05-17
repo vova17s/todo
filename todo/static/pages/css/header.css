@@ -30,7 +30,7 @@ header {
   position: relative;
 
   height: 38px;
-  width: 58px;
+  width: 46px;
 
   flex-flow: column nowrap;
   justify-content: space-between;
@@ -91,7 +91,7 @@ header {
 
   header {
     align-items: center;
-    padding: 20px 5%;
+    padding: 10px 5%;
   }
 
   .burger-container {

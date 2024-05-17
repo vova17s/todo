@@ -1,4 +1,13 @@
 #main {
   display: grid;
-  grid-template-columns: 220px calc(100% - 220px);
+  gap: 20px;
+  grid-template-columns: 250px calc(100dvw - 20px - 250px);
+  height: calc(100dvh - 73px);
+}
+
+@media (max-width: 1200px) {
+  #main {
+    display: grid;
+    grid-template-columns: 100dvw;
+  }
 }

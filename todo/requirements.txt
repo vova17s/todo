@@ -22,3 +22,6 @@ psycopg2-binary
 whitenoise
 django-cors-headers
 gunicorn
+djangorestframework
+drf-spectacular
+django-filter
