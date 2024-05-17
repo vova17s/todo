@@ -5,6 +5,7 @@ export class Timeline {
     this.currentDate = currentDate;
     this.monthData = getMonth(currentDate);
     this._timeline = [];
+    this.titleDays = [];
   }
 
   createTimeline() {
@@ -35,8 +36,10 @@ export class Timeline {
   async _prepare_columns() {
     let titlesString = "";
     let columnsString = "";
-    let currentDayCounter = this.currentDate.getDate();
-    let currentMonthCounter = this.monthData.month;
+    let _currentDate = {
+      day: this.currentDate.getDate(),
+      month: this.monthData.month
+    };
     let counter = 0;
 
     for (const _ of [...new Array(5)]) {
@@ -44,18 +47,23 @@ export class Timeline {
         titlesString +
         `
       <div class="task-title">
-        <div class="text__default">${currentDayCounter}</div>
-        <div class="text__default">${currentMonthCounter}</div>
+        <div class="text__default">${_currentDate.day}</div>
+        <div class="text__default">${_currentDate.month}</div>
       </div>
       `;
 
-      const nextDayData = getNextDay(currentMonthCounter, currentDayCounter);
-      currentMonthCounter = nextDayData.month;
-      currentDayCounter = nextDayData.day;
+      const currentMonth = this.currentDate.getMonth() + 1;
+      this.titleDays.push(
+        `${this.currentDate.getFullYear()}-${
+          currentMonth < 10 ? `0${currentMonth}` : `${currentMonth}`
+        }-${_currentDate.day}`
+      );
+      _currentDate = getNextDay(_currentDate.month, _currentDate.day);
     }
 
     for (const _ of [...new Array(window.innerWidth > 700 ? 5 : 1)]) {
-      columnsString += "<div>";
+      columnsString += `<div id="column-${counter}">`;
+
       for (const _ of this._timeline) {
         columnsString += `<div class="task-slot__timeline">${counter} place</div>`;
       }

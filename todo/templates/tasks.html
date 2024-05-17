@@ -21,6 +21,9 @@
 {% endblock root %}
 
 {% block scripts %}
+  <script>
+    localStorage.setItem("user_id", "{{ request.user.id }}")
+  </script>
   <script src="{% static 'js/pages/calendar.js' %}" type="module"></script>
   <script src="{% static 'js/features/scroll-grab.js' %}"></script>
 {% endblock scripts %}

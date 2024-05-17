@@ -22,10 +22,24 @@ class TaskListAPIView(ListAPIView):
     def get_queryset(self):
         user_id = self.request.query_params.get("user_id")
         plane_finished_date_str = self.request.query_params.get("plane_finished_time")
-        plane_finished_date = date(year=int(plane_finished_date_str[:4]),
-                                month=int(plane_finished_date_str[5:7]),
-                                day=int(plane_finished_date_str[8:10]))
-        return Task.objects.filter(user_id=user_id, plane_finished_time__startswith=plane_finished_date).order_by("plane_finished_time")
+
+        if not user_id or not plane_finished_date_str:
+            return Task.objects.all()
+
+        plane_finished_date = date(
+            year=int(plane_finished_date_str[:4]),
+            month=int(plane_finished_date_str[5:7]),
+            day=int(plane_finished_date_str[8:10])
+        )
+
+        print(plane_finished_date)
+
+        return Task.objects.filter(
+            user_id=user_id,
+            plane_finished_time__day=plane_finished_date.day,
+            plane_finished_time__month=plane_finished_date.month,
+            plane_finished_time__year=plane_finished_date.year
+        ).order_by("plane_finished_time")
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
