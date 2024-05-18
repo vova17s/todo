@@ -34,13 +34,12 @@ export class Timeline {
   }
 
   async _prepare_columns() {
-    let titlesString = "";
-    let columnsString = "";
     let _currentDate = {
       day: this.currentDate.getDate(),
       month: this.monthData.month
     };
-    let counter = 0;
+    let titlesString = "";
+    let columnsString = "";
 
     for (const _ of [...new Array(5)]) {
       titlesString =
@@ -61,14 +60,15 @@ export class Timeline {
       _currentDate = getNextDay(_currentDate.month, _currentDate.day);
     }
 
-    for (const _ of [...new Array(window.innerWidth > 700 ? 5 : 1)]) {
-      columnsString += `<div id="column-${counter}">`;
+    for (const timelineDay of window.innerWidth > 700
+      ? this.titleDays
+      : [this.titleDays[0]]) {
+      columnsString += `<div id="${timelineDay}" class="tasks-body-column">`;
 
       for (const _ of this._timeline) {
-        columnsString += `<div class="task-slot__timeline">${counter} place</div>`;
+        columnsString += `<div class="task-slot__timeline">${timelineDay} place</div>`;
       }
       columnsString += "</div>";
-      counter++;
     }
 
     return {
@@ -77,7 +77,7 @@ export class Timeline {
     };
   }
 
-  render() {
+  async render() {
     const timelineSlot = document.getElementById("tasks-times");
     const titleSlot = document.getElementById("tasks-titles");
     const columnsSlot = document.getElementById("tasks-body");

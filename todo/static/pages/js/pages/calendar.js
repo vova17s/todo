@@ -5,6 +5,7 @@ import { Timeline } from "../features/timeline.js";
 
 const renderCalendar = new RenderCalendar(currentDate);
 const renderTimeline = new Timeline(currentDate).createTimeline();
+const TF = new TaskFetcher(localStorage.getItem("user_id"));
 
 const initCalendar = async () => {
   let initialWindowSize = window.innerWidth;
@@ -18,18 +19,30 @@ const initCalendar = async () => {
       (initialWindowSize <= 700 && window.innerWidth > 700)
     ) {
       initialWindowSize = window.innerWidth;
-      renderTimeline.render();
+      renderTimeline.render().then(async () => {
+        for (const [day, { tasks }] of Object.entries(await TF.refetch())) {
+          tasks.forEach((task) => {
+            const taskChild = document.createElement("div");
+            taskChild.classList.add("task");
+            taskChild.innerText = task.title;
+            document.getElementById(day).appendChild(taskChild);
+          });
+        }
+      });
       return;
     }
   });
 };
 
 initCalendar().then(() => {
-  const TF = new TaskFetcher(localStorage.getItem("user_id"));
-
   renderTimeline.titleDays.forEach((day) => {
     TF.fetchTasksByDay(day).then(({ tasks }) => {
-      console.log(tasks, day);
+      tasks.forEach((task) => {
+        const taskChild = document.createElement("div");
+        taskChild.classList.add("task");
+        taskChild.innerText = task.title;
+        document.getElementById(day).appendChild(taskChild);
+      });
     });
   });
 });
