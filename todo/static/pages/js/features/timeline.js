@@ -66,7 +66,7 @@ export class Timeline {
       columnsString += `<div id="${timelineDay}" class="tasks-body-column">`;
 
       for (const _ of this._timeline) {
-        columnsString += `<div class="task-slot__timeline">${timelineDay} place</div>`;
+        columnsString += `<div class="task-slot__timeline"></div>`;
       }
       columnsString += "</div>";
     }

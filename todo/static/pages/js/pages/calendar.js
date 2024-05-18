@@ -38,8 +38,10 @@ initCalendar().then(() => {
   renderTimeline.titleDays.forEach((day) => {
     TF.fetchTasksByDay(day).then(({ tasks }) => {
       tasks.forEach((task) => {
+        const planedTime = new Date(task.plane_finished_time);
         const taskChild = document.createElement("div");
         taskChild.classList.add("task");
+        taskChild.style.top = `${ planedTime.getHours() * 100 + planedTime.getMinutes() * 1.667 }px`
         taskChild.innerText = task.title;
         document.getElementById(day).appendChild(taskChild);
       });
