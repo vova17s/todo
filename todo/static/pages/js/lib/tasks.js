@@ -9,7 +9,14 @@ export const renderTask = async (day, task) => {
 
   taskChild.classList.add("task");
   taskChild.style.top = `${calculatedOffset}px`;
-  taskChild.innerText = task.title;
+  taskChild.innerHTML = `
+    <img
+      src="/static/public/task.svg"
+      alt="Someone"
+      class="task-img"
+    />
+    ${task.title}
+  `;
 
   document.getElementById(day).appendChild(taskChild);
 };

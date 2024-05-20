@@ -32,8 +32,6 @@ class TaskListAPIView(ListAPIView):
             day=int(plane_finished_date_str[8:10])
         )
 
-        print(plane_finished_date)
-
         return Task.objects.filter(
             user_id=user_id,
             plane_finished_time__day=plane_finished_date.day,

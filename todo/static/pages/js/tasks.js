@@ -1,5 +1,6 @@
 const dateRegex = /[2][0][0-9][0-9]-[0-1][0-9]-[0-3][0-9]/gm;
 const timeRegex = /[0-2][0-9]:[0-5][0-9]/gm;
+const STATUS_ID = "b9e251cb-abd7-4b10-8b7e-12bee33c51b1";
 
 const getCredential = (key) => {
   const matches = document.cookie.match(
@@ -47,7 +48,7 @@ const submitHandler = (event) => {
     body: JSON.stringify({
       title: formData.getAll("title")[0],
       description: formData.getAll("description")[0],
-      status_id: "d616abb4-d0e8-48fd-af4c-8c8a97757b09",
+      status_id: STATUS_ID,
       plane_finished_time: `${matchedDate}T${matchedTime}:00.000Z`,
       user_id: localStorage.getItem("user_id")
     }),

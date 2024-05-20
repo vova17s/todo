@@ -1,6 +1,6 @@
 from allauth.account.forms import LoginForm, SignupForm
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-from django.forms import CharField, EmailInput, FileInput, PasswordInput, TextInput
+from django.forms import CharField, EmailInput, PasswordInput, TextInput
 
 from .models import User
 
@@ -75,6 +75,7 @@ class CustomUserCreationForm(UserCreationForm, SignupForm):
                 }
             ),
         )
+        self.fields.pop("avatar") 
 
     def save(self, request):
         user = super(CustomUserCreationForm, self).save(request)
@@ -89,14 +90,6 @@ class CustomUserCreationForm(UserCreationForm, SignupForm):
                     "class": "input__default text__default",
                     "required": True,
                     "placeholder": "Last name",
-                }
-            ),
-            "avatar": FileInput(
-                attrs={
-                    "class": "input__default text__default",
-                    "required": True,
-                    "placeholder": "Avatar",
-                    "accept": "image/*",
                 }
             ),
         }
