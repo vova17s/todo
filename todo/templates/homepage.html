@@ -18,9 +18,21 @@
   <div class="text-head">
     <h1 class="text__default">One app for your big business</h1>
     <p class="text__default">Just try and you will love your task tracker!</p>
+
+    {% if not request.user.is_authenticated %}
+    <a href="{% url 'account_login' %}">
+    <button class="header-button__preview button__default text__default">
+      Login
+    </button>
+    </a>
+    {% else %}
+    <a href="{% url 'task_list' %}">
     <button class="header-button__preview button__default text__default">
       Start
     </button>
+    </a>
+    {% endif %}
+    
   </div>
   <div class="img-head">
     <img
