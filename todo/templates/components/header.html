@@ -9,9 +9,12 @@
 
   <div class="header-links">
     <a href="{% url 'homepage' %}" class="link__header text__default"> Home </a>
+    {% if not request.user.is_authenticated %}
+    {% else %}
     <a href="{% url 'posts' %}" class="link__header text__default">Posts</a>
     <a href="{% url 'all_task' %}" class="link__header text__default">Task</a>
-  </div>
+    {% endif %}
+</div>
 
   {% if not request.user.is_authenticated %}
   <a href="{% url 'account_login' %}" class="link__header__login">
