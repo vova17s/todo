@@ -2,6 +2,7 @@ import { TaskFetcher } from "../api/fetch-tasks.js";
 import { currentDate } from "../calendar/consts.js";
 import { RenderCalendar } from "../features/calendar-layout.js";
 import { Timeline } from "../features/timeline.js";
+import { renderTask } from "../lib/tasks.js";
 
 const renderCalendar = new RenderCalendar(currentDate);
 const renderTimeline = new Timeline(currentDate).createTimeline();
@@ -13,7 +14,7 @@ const initCalendar = async () => {
   renderCalendar.render();
   renderTimeline.render();
 
-  window.addEventListener("resize", (event) => {
+  window.addEventListener("resize", () => {
     if (
       (initialWindowSize > 700 && window.innerWidth <= 700) ||
       (initialWindowSize <= 700 && window.innerWidth > 700)
@@ -37,14 +38,7 @@ const initCalendar = async () => {
 initCalendar().then(() => {
   renderTimeline.titleDays.forEach((day) => {
     TF.fetchTasksByDay(day).then(({ tasks }) => {
-      tasks.forEach((task) => {
-        const planedTime = new Date(task.plane_finished_time);
-        const taskChild = document.createElement("div");
-        taskChild.classList.add("task");
-        taskChild.style.top = `${ planedTime.getHours() * 100 + planedTime.getMinutes() * 1.667 }px`
-        taskChild.innerText = task.title;
-        document.getElementById(day).appendChild(taskChild);
-      });
+      tasks.forEach((task) => renderTask(day, task));
     });
   });
 });

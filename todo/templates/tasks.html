@@ -18,6 +18,7 @@
     {% include 'components/calendar-aside.html' %}
     {% include 'components/calendar-main.html' %}
     {% include 'components/plus.html' %}
+    {% include 'components/create-task-modal.html' %}
   </main>
 
 {% endblock root %}
@@ -28,4 +29,5 @@
   </script>
   <script src="{% static 'js/pages/calendar.js' %}" type="module"></script>
   <script src="{% static 'js/features/scroll-grab.js' %}"></script>
+  <script src="{% static 'js/tasks.js' %}"></script>
 {% endblock scripts %}
