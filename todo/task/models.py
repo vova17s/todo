@@ -45,7 +45,7 @@ class Task(models.Model):
 
 
 @receiver(post_save, sender=Task)
-def tast_update_status(instance, **kwargs):
+def tast_update_status(instance, **kwargs) -> None:
     edit_task = Task.objects.get(id=instance.id)
     if edit_task.status_id.finished and edit_task.real_finished_time == None:
         edit_task.real_finished_time = datetime.datetime.now()

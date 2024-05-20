@@ -1,0 +1,51 @@
+{% load static %}
+
+<article class="modal-task__background" id="modal-create" onclick="toggleCreateModal(event)">
+  <section class="modal-task__body">
+    <div class="modal-task-head">
+      <p class="text__default">Create new task</p>
+      <img
+        class="modal-task-img"
+        src="{% static 'public/plus.svg' %}"
+        alt="close"
+        onclick="toggleCreateModal(event)"
+      />
+    </div>
+    <div class="modal-task-form-container">
+    <form class="modal-task-form" onsubmit="submitHandler(event)">
+      <input 
+        type="text"
+        class="input__default"
+        placeholder="Title"
+        name="title"
+        required
+      />
+      <input
+        type="text"
+        class="input__default"
+        placeholder="Description"
+        name="description"
+        required
+      />
+      <input
+        type="text"
+        class="input__default"
+        placeholder="Finished date: Year-Month-Day"
+        name="plane_finished_date"
+        required
+      />
+      <input
+        type="text"
+        class="input__default"
+        placeholder="Finished time: 12:12"
+        name="plane_finished_time"
+        required
+      />
+      <button
+        class="button__default"
+        type="submit"
+      >Create task</button>
+    </form>
+    </div>
+  </section>
+</article>

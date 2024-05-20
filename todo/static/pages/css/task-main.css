@@ -67,6 +67,38 @@
   height: 100px;
 }
 
+.task {
+  display: flex;
+  align-items: center;
+
+  padding-left: 5px;
+
+  height: 25px;
+  width: 100%;
+  position: absolute;
+
+  background-color: #1967d2;
+
+  color: #fff;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 14px;
+
+  top: 0px;
+  border-radius: 5px;
+}
+
+.tasks-body-column {
+  position: relative;
+}
+
+.task-img {
+  margin-right: 6px;
+  height: 16px;
+  width: 16px;
+}
+
 @media (max-width: 700px) {
   ._plug {
     display: none;

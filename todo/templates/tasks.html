@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="{% static 'css/task.css' %}" />
   <link rel="stylesheet" href="{% static 'css/task-bar.css' %}" />
   <link rel="stylesheet" href="{% static 'css/task-main.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/task-modal.css' %}" />
 {% endblock static %}
 
 {% block title %} Tasks | To Do {% endblock title %}
@@ -16,11 +17,17 @@
   <main id="main">
     {% include 'components/calendar-aside.html' %}
     {% include 'components/calendar-main.html' %}
+    {% include 'components/plus.html' %}
+    {% include 'components/create-task-modal.html' %}
   </main>
 
 {% endblock root %}
 
 {% block scripts %}
+  <script>
+    localStorage.setItem("user_id", "{{ request.user.id }}")
+  </script>
   <script src="{% static 'js/pages/calendar.js' %}" type="module"></script>
   <script src="{% static 'js/features/scroll-grab.js' %}"></script>
+  <script src="{% static 'js/tasks.js' %}"></script>
 {% endblock scripts %}
