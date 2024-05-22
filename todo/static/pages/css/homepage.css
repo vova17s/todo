@@ -38,6 +38,15 @@
 }
 
 @media (max-width: 800px) {
+  .hp-link {
+    display: flex;
+    height: 60px;
+    width: 200px;
+
+    text-decoration: none;
+    margin: 0 auto;
+  }
+
   .img-head {
     display: none;
   }
