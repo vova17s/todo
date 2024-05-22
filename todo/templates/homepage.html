@@ -20,13 +20,13 @@
     <p class="text__default">Just try and you will love your task tracker!</p>
 
     {% if not request.user.is_authenticated %}
-    <a href="{% url 'account_login' %}">
+    <a href="{% url 'account_login' %}" class="hp-link">
     <button class="header-button__preview button__default text__default">
       Login
     </button>
     </a>
     {% else %}
-    <a href="{% url 'task_list' %}">
+    <a href="{% url 'all_task' %}" class="hp-link">
     <button class="header-button__preview button__default text__default">
       Start
     </button>
