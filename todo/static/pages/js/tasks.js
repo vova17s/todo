@@ -60,6 +60,5 @@ const submitHandler = (event) => {
       "Content-Type": "application/json",
       "X-CSRFTOKEN": getCredential("csrftoken")
     }
-  });
-  // .then(() => window.location.reload());
+  }).then(() => window.location.reload());
 };

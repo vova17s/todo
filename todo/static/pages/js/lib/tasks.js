@@ -25,7 +25,7 @@ export const renderTask = async (day, task) => {
 
   taskChild.classList.add("task");
 
-  if (task.status_id === OPEN_STATUS_ID) {
+  if (task.status_id === CLOSE_STATUS_ID) {
     taskChild.classList.add("closed");
   }
 
