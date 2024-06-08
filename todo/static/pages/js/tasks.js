@@ -1,6 +1,7 @@
 const dateRegex = /[2][0][0-9][0-9]-[0-1][0-9]-[0-3][0-9]/gm;
 const timeRegex = /[0-2][0-9]:[0-5][0-9]/gm;
-const STATUS_ID = "b9e251cb-abd7-4b10-8b7e-12bee33c51b1";
+const OPEN_STATUS_ID = "826eda8f-7a36-45d1-950d-6b9b33194a67";
+const CLOSE_STATUS_ID = "9b46d68b-b58d-4732-a65b-cf1ab2c44598";
 
 const getCredential = (key) => {
   const matches = document.cookie.match(
@@ -21,6 +22,7 @@ const toggleCreateModal = (event) => {
 };
 
 const submitHandler = (event) => {
+  console.log(1);
   event.preventDefault();
 
   const form = event.target;
@@ -48,7 +50,7 @@ const submitHandler = (event) => {
     body: JSON.stringify({
       title: formData.getAll("title")[0],
       description: formData.getAll("description")[0],
-      status_id: STATUS_ID,
+      status_id: OPEN_STATUS_ID,
       plane_finished_time: `${matchedDate}T${matchedTime}:00.000Z`,
       user_id: localStorage.getItem("user_id")
     }),
@@ -58,5 +60,6 @@ const submitHandler = (event) => {
       "Content-Type": "application/json",
       "X-CSRFTOKEN": getCredential("csrftoken")
     }
-  }).then(() => window.location.reload());
+  });
+  // .then(() => window.location.reload());
 };

@@ -37,6 +37,7 @@ const initCalendar = async () => {
 
 initCalendar().then(() => {
   renderTimeline.titleDays.forEach((day) => {
+    console.log(day);
     TF.fetchTasksByDay(day).then(({ tasks }) => {
       tasks.forEach((task) => renderTask(day, task));
     });

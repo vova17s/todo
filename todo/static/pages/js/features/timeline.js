@@ -55,7 +55,9 @@ export class Timeline {
       this.titleDays.push(
         `${this.currentDate.getFullYear()}-${
           currentMonth < 10 ? `0${currentMonth}` : `${currentMonth}`
-        }-${_currentDate.day}`
+        }-${
+          _currentDate.day < 10 ? `0${_currentDate.day}` : `${_currentDate.day}`
+        }`
       );
       _currentDate = getNextDay(_currentDate.month, _currentDate.day);
     }

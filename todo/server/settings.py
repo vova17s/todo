@@ -68,7 +68,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    # "corsheaders.middleware.CorsMiddleware",  # cors headers
+    "corsheaders.middleware.CorsMiddleware",  # cors headers
     "django.middleware.common.CommonMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",  # whitenoise
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -202,9 +202,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CORS_ALLOW_ALL_ORIGINS = True
 
 REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASS': [
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableRenderer',
+    "DEFAULT_RENDERER_CLASS": [
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework.renderers.BrowsableRenderer",
     ],
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
