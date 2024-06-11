@@ -205,6 +205,7 @@ nav {
   background-color: #fff;
 
   transition: all 0.3s ease-in-out;
+  z-index: 5;
 
   &.open {
     left: 0px;
