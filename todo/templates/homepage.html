@@ -5,6 +5,10 @@
 {% block static %}
 <link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
 <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 {% endblock static %}
 
 <!-- prettier-ignore -->
@@ -35,38 +39,44 @@
     
   </div>
   <div class="img-head">
-    <div class="wrap">
-      <div id="arrow-left" class="arrow"></div>
-    
-      <div id="slider">
-          <div class="slide slide1">
-              <div class="slide-content">
-              </div>
-          </div>
-    
-          <div class="slide slide2">
-              <div class="slide-content">
-              </div>
-          </div>
-    
-          <div class="slide slide3">
-              <div class="slide-content">
-              </div>
-          </div>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            style="width: 100%; height: 300px;"
+            src="https://t4.ftcdn.net/jpg/00/51/43/65/360_F_51436562_GRSAKMC2RXSjtbM5CEz0NVDQr704OaGV.jpg"
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            style="width: 100%; height: 300px;"
+            src="https://media.istockphoto.com/id/1193476717/photo/male-hands-making-a-to-do-list-in-a-notebook-over-an-office-desk.jpg?b=1&s=170667a&w=0&k=20&c=p7MUCCTnL9eCmBr0FEBNs_4GFPg7yniFVz3m94k5OQQ="
+            alt=""
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            style="width: 100%; height: 300px; object-fit: cover;"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjydBgaiy1TPR3G0LZPDffdruvfqFSfb37lA&s"
+            alt=""
+          />
+        </div>
       </div>
-    
-      <div id="arrow-right" class="arrow"></div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
     <!-- <img
       src="{% static 'public/phone-app.png' %}"
       alt=""
       class="img-head-phone"
-    />
-  </div> -->
+    /> -->
+  </div>
 </section>
 {% endblock root %}
 
 {% block scripts %}
-<script src="{% static 'js/slider.js' %}"></script>
+<script type="module" src="{% static 'js/slider.js' %}"></script>
 
 {% endblock scripts %}
