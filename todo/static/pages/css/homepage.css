@@ -48,7 +48,7 @@
   }
 
   .img-head {
-    display: none;
+    justify-self: center;
   }
 
   .head__home {
@@ -66,4 +66,64 @@
       text-align: center;
     }
   }
+}
+.wrap {
+  position: relative;
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+
+.slide1 {
+  background-image: url(https://t4.ftcdn.net/jpg/00/51/43/65/360_F_51436562_GRSAKMC2RXSjtbM5CEz0NVDQr704OaGV.jpg);
+}
+
+.slide2 {
+  background-image: url(https://media.istockphoto.com/id/1193476717/photo/male-hands-making-a-to-do-list-in-a-notebook-over-an-office-desk.jpg?b=1&s=170667a&w=0&k=20&c=p7MUCCTnL9eCmBr0FEBNs_4GFPg7yniFVz3m94k5OQQ=);
+}
+
+.slide3 {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjydBgaiy1TPR3G0LZPDffdruvfqFSfb37lA&s);
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 300px;
+}
+
+.slide-content span {
+  color: #fff;
+  font-size: 5rem;
+}
+
+.arrow {
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  margin-top: -35px;
+}
+
+#arrow-left {
+  border-width: 30px 40px 30px 0;
+  border-color: transparent #fff transparent #fff;
+  left: 0;
+  margin-left: 30px;
+}
+
+#arrow-right {
+  border-width: 30px 0 30px 40px;
+  border-color: transparent #fff transparent #fff;
+  right: 0;
+  margin-right: 30px;
 }

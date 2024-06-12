@@ -11,9 +11,9 @@
 {% block title %}
   Home | To Do
 {% endblock title %}
-
 {% block root %}
 {% include "components/header.html" %}
+
 <section class="head__home">
   <div class="text-head">
     <h1 class="text__default">One app for your big business</h1>
@@ -35,11 +35,38 @@
     
   </div>
   <div class="img-head">
-    <img
+    <div class="wrap">
+      <div id="arrow-left" class="arrow"></div>
+    
+      <div id="slider">
+          <div class="slide slide1">
+              <div class="slide-content">
+              </div>
+          </div>
+    
+          <div class="slide slide2">
+              <div class="slide-content">
+              </div>
+          </div>
+    
+          <div class="slide slide3">
+              <div class="slide-content">
+              </div>
+          </div>
+      </div>
+    
+      <div id="arrow-right" class="arrow"></div>
+    </div>
+    <!-- <img
       src="{% static 'public/phone-app.png' %}"
       alt=""
       class="img-head-phone"
     />
-  </div>
+  </div> -->
 </section>
 {% endblock root %}
+
+{% block scripts %}
+<script src="{% static 'js/slider.js' %}"></script>
+
+{% endblock scripts %}
