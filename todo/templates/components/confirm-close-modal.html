@@ -1,0 +1,24 @@
+{% load static %}
+
+<article class="modal-task__background" id="modal-confirm" onclick="toggleConfirmModal(event)">
+  <section class="modal-task__body">
+    <div class="modal-task-head">
+      <p class="text__default">Really toggle task?</p>
+      <img
+        class="modal-task-img"
+        src="{% static 'public/plus.svg' %}"
+        alt="close"
+        onclick="toggleConfirmModal(event)"
+      />
+    </div>
+    <div class="modal-task-form-container">
+    <div class="modal-task-form">
+      <button
+        class="button__default"
+        type="submit"
+        onclick="closeTask(event)"
+      >Toggle task</button>
+    </div>
+    </div>
+  </section>
+</article>

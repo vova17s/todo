@@ -21,8 +21,27 @@ const toggleCreateModal = (event) => {
   modal.classList.toggle("open");
 };
 
+const toggleConfirmModal = (event) => {
+  if (event.target !== event.currentTarget) return;
+
+  const modal = document.getElementById("modal-confirm");
+  modal.classList.toggle("open");
+};
+
+const closeTask = (event) => {
+  const currentTaskId = localStorage.getItem("current_task_id");
+  const currentTaskConfig = JSON.parse(
+    localStorage.getItem("current_task_config")
+  );
+  console.log(currentTaskId);
+  console.log(currentTaskConfig);
+  fetch(`/api/v1/crud/task/${currentTaskId}/`, currentTaskConfig).then(() => {
+    toggleConfirmModal(event);
+    window.location.reload();
+  });
+};
+
 const submitHandler = (event) => {
-  console.log(1);
   event.preventDefault();
 
   const form = event.target;
