@@ -90,6 +90,7 @@
   border-radius: 5px;
 
   &.closed {
+    background-color: #34b800;
     text-decoration: line-through;
   }
 }

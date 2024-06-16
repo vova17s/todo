@@ -7,19 +7,19 @@
 {% endblock static %}
 
 {% block title %}
-    Sign In with {{ provider }} | To Do
+    Вход {{ provider }} | To Do
 {% endblock title %}
 
 {% block root %}
 {% include 'components/header.html' %}
 <main>
     <h1>
-        Sign In Via {{ provider }}
+        Вход с помощью {{ provider }}
     </h1>
 
     <form action="" method="post">
         {% csrf_token %}
-        <button type="submit" class="button__default button__auth">Continue</button>
+        <button type="submit" class="button__default button__auth">Продолжить</button>
     </form>
 </main>
 {% endblock root %}

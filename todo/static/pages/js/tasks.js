@@ -2,6 +2,8 @@ const dateRegex = /[2][0][0-9][0-9]-[0-1][0-9]-[0-3][0-9]/gm;
 const timeRegex = /[0-2][0-9]:[0-5][0-9]/gm;
 const OPEN_STATUS_ID = "826eda8f-7a36-45d1-950d-6b9b33194a67";
 const CLOSE_STATUS_ID = "9b46d68b-b58d-4732-a65b-cf1ab2c44598";
+// const OPEN_STATUS_ID = "6ce7a55b-bb05-4323-9909-adebf78aa9e5";
+// const CLOSE_STATUS_ID = "a9e4a890-f309-4a2e-9275-932f9581cd5a";
 
 const getCredential = (key) => {
   const matches = document.cookie.match(
@@ -33,8 +35,7 @@ const closeTask = (event) => {
   const currentTaskConfig = JSON.parse(
     localStorage.getItem("current_task_config")
   );
-  console.log(currentTaskId);
-  console.log(currentTaskConfig);
+
   fetch(`/api/v1/crud/task/${currentTaskId}/`, currentTaskConfig).then(() => {
     toggleConfirmModal(event);
     window.location.reload();

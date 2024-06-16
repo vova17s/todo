@@ -3,7 +3,11 @@
 <article class="modal-task__background" id="modal-confirm" onclick="toggleConfirmModal(event)">
   <section class="modal-task__body">
     <div class="modal-task-head">
-      <p class="text__default">Really toggle task?</p>
+      <p class="text__default">
+        <span id="task-place__toggle">Закрыть</span> 
+        задачу 
+        <span id="task-place__name">фыва</span>?
+      </p>
       <img
         class="modal-task-img"
         src="{% static 'public/plus.svg' %}"
@@ -17,7 +21,7 @@
         class="button__default"
         type="submit"
         onclick="closeTask(event)"
-      >Toggle task</button>
+      >Да</button>
     </div>
     </div>
   </section>

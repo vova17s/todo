@@ -13,26 +13,26 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
 <!-- prettier-ignore -->
 {% block title %}
-  Home | To Do
+  Домашняя страница | To Do
 {% endblock title %}
 {% block root %}
 {% include "components/header.html" %}
 
 <section class="head__home">
   <div class="text-head">
-    <h1 class="text__default">One app for your big business</h1>
-    <p class="text__default">Just try and you will love your task tracker!</p>
+    <h1 class="text__default">Единое приложение для вашего крупного бизнеса</h1>
+    <p class="text__default">Просто попробуйте, и вам понравится наш трекер задач!</p>
 
     {% if not request.user.is_authenticated %}
     <a href="{% url 'account_login' %}" class="hp-link">
     <button class="header-button__preview button__default text__default">
-      Login
+      Вход
     </button>
     </a>
     {% else %}
     <a href="{% url 'all_task' %}" class="hp-link">
     <button class="header-button__preview button__default text__default">
-      Start
+      Начать!
     </button>
     </a>
     {% endif %}
@@ -67,11 +67,6 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
-    <!-- <img
-      src="{% static 'public/phone-app.png' %}"
-      alt=""
-      class="img-head-phone"
-    /> -->
   </div>
 </section>
 {% endblock root %}

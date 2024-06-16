@@ -3,7 +3,7 @@
 <article class="modal-task__background" id="modal-create" onclick="toggleCreateModal(event)">
   <section class="modal-task__body">
     <div class="modal-task-head">
-      <p class="text__default">Create new task</p>
+      <p class="text__default">Новая задача</p>
       <img
         class="modal-task-img"
         src="{% static 'public/plus.svg' %}"
@@ -16,35 +16,35 @@
       <input 
         type="text"
         class="input__default"
-        placeholder="Title"
+        placeholder="Название"
         name="title"
         required
       />
       <input
         type="text"
         class="input__default"
-        placeholder="Description"
+        placeholder="Описание"
         name="description"
         required
       />
       <input
         type="text"
         class="input__default"
-        placeholder="Finished date: Year-Month-Day"
+        placeholder="День завершения: год-месяц-день"
         name="plane_finished_date"
         required
       />
       <input
         type="text"
         class="input__default"
-        placeholder="Finished time: 12:12"
+        placeholder="Время завершения: 12:12"
         name="plane_finished_time"
         required
       />
       <button
         class="button__default"
         type="submit"
-      >Create task</button>
+      >Создать</button>
     </form>
     </div>
   </section>
