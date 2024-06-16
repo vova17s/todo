@@ -7,7 +7,7 @@
 {% endblock static %}
 
 {% block title %}
-  Sign in | To Do
+  Вход | To Do
 {% endblock title %}
 
 {% block root %}
@@ -16,8 +16,8 @@
     <p class="flex__center text__default" style="font-weight: 700;">Sign In</p>
 
     <p class="flex__center text__default">
-      Have not an account? Then please
-      <a href="{% url 'account_signup' %}" style="color: inherit;">sign up</a>.
+      У вас нет учетной записи? Тогда, пожалуйста,
+      <a href="{% url 'account_signup' %}" style="color: inherit;">зарегистрируйтесь</a>.
     </p>
 
     {% url 'account_login' as action_url %}
@@ -50,7 +50,7 @@
         {{ form.remember }}
       </div>
       <button type="submit" class="button__default button__auth">
-        Sign In
+        Вход
       </button>
     </form>
 

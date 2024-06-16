@@ -14,36 +14,38 @@ class CustomUserCreationForm(UserCreationForm, SignupForm):
     def __init__(self, *args, **kargs):
         super(CustomUserCreationForm, self).__init__(*args, **kargs)
         self.fields["first_name"] = CharField(
-            label="First name",
+            label="Имя",
             widget=TextInput(
                 attrs={
                     "class": "input__default text__default",
                     "required": False,
-                    "placeholder": "First name",
+                    "placeholder": "Имя",
                 }
             ),
         )
         self.fields["last_name"] = CharField(
-            label="Last name",
+            label="Фамилия",
             widget=TextInput(
                 attrs={
                     "class": "input__default text__default",
                     "required": False,
-                    "placeholder": "First name",
-                    "label": ""
+                    "placeholder": "Фамилия",
+                    "label": "",
                 }
             ),
         )
         self.fields["username"] = CharField(
+            label="Ник",
             widget=TextInput(
                 attrs={
                     "class": "input__default text__default",
                     "required": True,
-                    "placeholder": "Username",
+                    "placeholder": "Ник",
                 }
-            )
+            ),
         )
         self.fields["email"] = CharField(
+            label="Email",
             widget=EmailInput(
                 attrs={
                     "class": "input__default text__default",
@@ -51,31 +53,31 @@ class CustomUserCreationForm(UserCreationForm, SignupForm):
                     "required": True,
                     "placeholder": "Email",
                 }
-            )
+            ),
         )
         self.fields["password1"] = CharField(
-            label="Password",
+            label="Пароль",
             widget=PasswordInput(
                 attrs={
                     "class": "input__default text__default",
                     "required": True,
-                    "placeholder": "Password",
-                    "label": "Password",
+                    "placeholder": "Пароль",
+                    "label": "Пароль",
                 }
             ),
         )
         self.fields["password2"] = CharField(
-            label="Password (confirm)",
+            label="Пароль (подтверждение)",
             widget=PasswordInput(
                 attrs={
                     "class": "input__default text__default",
                     "required": True,
-                    "placeholder": "Password (confirm)",
+                    "placeholder": "Пароль (подтверждение)",
                     "label": "Password",
                 }
             ),
         )
-        self.fields.pop("avatar") 
+        self.fields.pop("avatar")
 
     def save(self, request):
         user = super(CustomUserCreationForm, self).save(request)
@@ -89,7 +91,7 @@ class CustomUserCreationForm(UserCreationForm, SignupForm):
                 attrs={
                     "class": "input__default text__default",
                     "required": True,
-                    "placeholder": "Last name",
+                    "placeholder": "Фамилия",
                 }
             ),
         }
@@ -110,28 +112,26 @@ class CustomUserChangeForm(UserChangeForm):
         fields = "__all__"
 
 
-
 class MyCustomLoginForm(LoginForm):
-
     def __init__(self, *args, **kargs):
         super(MyCustomLoginForm, self).__init__(*args, **kargs)
         self.fields["login"] = CharField(
-            label="Username",
+            label="Ник",
             widget=TextInput(
                 attrs={
                     "class": "input__default text__default",
                     "required": True,
-                    "placeholder": "Username",
+                    "placeholder": "Ник",
                 }
-            )
+            ),
         )
         self.fields["password"] = CharField(
-            label="Password",
+            label="Пароль",
             widget=PasswordInput(
                 attrs={
                     "class": "input__default text__default",
                     "required": True,
-                    "placeholder": "Password",
+                    "placeholder": "Пароль",
                     "label": "Password",
                 }
             ),

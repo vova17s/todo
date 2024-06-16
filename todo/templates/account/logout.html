@@ -7,21 +7,21 @@
 {% endblock static %}
 
 {% block title %}
-    Sign Out | To Do
+    Выход | To Do
 {% endblock title %}
 
 {% block root %}
 {% include 'components/header.html' %}
 <main>
-    <h1 class="flex__center text__default">Sign Out</h1>
+    <h1 class="flex__center text__default">Выход</h1>
     
-    <p class="flex__center text__default" style="height: fit-content;">Are you sure you want to sign out?</p>    
+    <p class="flex__center text__default" style="height: fit-content;">Вы уверены, что хотите выйти?</p>    
 
     {% url 'account_logout' as action_url %}
     <form action="{{ action_url }}" method="post">
         {% csrf_token %}
         {{ redirect_field }}
-        <button class="button__default button__auth" type="submit">Sign Out</button>
+        <button class="button__default button__auth" type="submit">Выход</button>
     </form>
 </main>
 {% endblock root %}

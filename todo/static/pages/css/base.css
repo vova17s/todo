@@ -168,6 +168,13 @@ table {
   border-radius: 8px;
   outline: none;
   border: 1.5px solid #000;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
 }
 
 .input__default {

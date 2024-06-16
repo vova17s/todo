@@ -24,6 +24,12 @@
   font-weight: 900;
 
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: #000;
+    background-color: #fff;
+  }
 }
 
 .modal-task__background {

@@ -7,17 +7,17 @@
 {% endblock static %}
 
 {% block title %}
-    Signup | To Do
+Регистрация | To Do
 {% endblock title %}
 
 {% block root %}
     {% include 'components/header.html' %}
     <main>
-        <p class="flex__center text__default" style="font-weight: 700;">Sign Up</p>
+        <p class="flex__center text__default" style="font-weight: 700;">Регистрация</p>
 
         <p class="flex__center text__default">
-            Already have an account? Then please 
-            <a href="{{ login_url }}" style="color: inherit;">sign in</a>.
+            У вас уже есть аккаунт? Тогда, пожалуйста,
+            <a href="{{ login_url }}" style="color: inherit;">войдите</a>.
         </p>
     
         {% url 'account_signup' as action_url %}
@@ -26,7 +26,7 @@
             {{ form }}
             {{ redirect_field }}
             <button type="submit" class="button__default button__auth">
-                Sign Up
+                Регистрация
             </button>
         </form>
     
