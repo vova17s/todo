@@ -21,7 +21,7 @@
 
 .head__home {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: 40% 60%;
   width: 100%;
   padding: 20px 10%;
   align-items: center;
@@ -34,15 +34,29 @@
 }
 
 .img-head {
+  display: grid;
+  justify-content: end;
+
   justify-self: end;
   min-width: 100%;
 }
 
 .swiper {
-  width: 600px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.swiper-slide img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 800px) {
+  .head__home {
+    gap: 20px;
+  }
+
   .hp-link {
     display: flex;
     height: 60px;
@@ -54,6 +68,7 @@
 
   .img-head {
     justify-self: center;
+    display: block;
   }
 
   .head__home {
@@ -70,9 +85,14 @@
       width: 100%;
       text-align: center;
     }
+
+    & > h1 {
+      font-size: 32px;
+    }
   }
 
   .swiper {
     width: calc(100dvw - 40px);
+    max-width: calc(100dvw - 40px);
   }
 }

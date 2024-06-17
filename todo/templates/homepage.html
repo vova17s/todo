@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
 <link rel="stylesheet" href="{% static 'css/header.css' %}" />
 <link
-rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
 {% endblock static %}
 
@@ -21,44 +21,42 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 <section class="head__home">
   <div class="text-head">
     <h1 class="text__default">Единое приложение для вашего крупного бизнеса</h1>
-    <p class="text__default">Просто попробуйте, и вам понравится наш трекер задач!</p>
+    <p class="text__default">
+      Просто попробуйте, и вам понравится наш трекер задач!
+    </p>
 
     {% if not request.user.is_authenticated %}
     <a href="{% url 'account_login' %}" class="hp-link">
-    <button class="header-button__preview button__default text__default">
-      Вход
-    </button>
+      <button class="header-button__preview button__default text__default">
+        Вход
+      </button>
     </a>
     {% else %}
     <a href="{% url 'all_task' %}" class="hp-link">
-    <button class="header-button__preview button__default text__default">
-      Начать!
-    </button>
+      <button class="header-button__preview button__default text__default">
+        Начать!
+      </button>
     </a>
     {% endif %}
-    
   </div>
   <div class="img-head">
     <div class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <img
-            style="width: 100%; height: 300px;"
-            src="https://t4.ftcdn.net/jpg/00/51/43/65/360_F_51436562_GRSAKMC2RXSjtbM5CEz0NVDQr704OaGV.jpg"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTftK01fnJdy-4QzJ3IEQL3Ao_ozYdQjfA9gg&s"
             alt=""
           />
         </div>
         <div class="swiper-slide">
           <img
-            style="width: 100%; height: 300px;"
-            src="https://media.istockphoto.com/id/1193476717/photo/male-hands-making-a-to-do-list-in-a-notebook-over-an-office-desk.jpg?b=1&s=170667a&w=0&k=20&c=p7MUCCTnL9eCmBr0FEBNs_4GFPg7yniFVz3m94k5OQQ="
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8NHw_pjlyyLLvrV2ZlsMKw7pd8TysnByVjA&s"
             alt=""
           />
         </div>
         <div class="swiper-slide">
           <img
-            style="width: 100%; height: 300px; object-fit: cover;"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjydBgaiy1TPR3G0LZPDffdruvfqFSfb37lA&s"
+            src="https://media.npr.org/assets/img/2022/12/22/lk_harlan_to-do-list_final_slide-3afb79b27d7f583bc41eb4f3ba1c50c9d17877ae.jpg"
             alt=""
           />
         </div>
@@ -69,9 +67,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     </div>
   </div>
 </section>
-{% endblock root %}
-
-{% block scripts %}
+{% endblock root %} {% block scripts %}
 <script type="module" src="{% static 'js/slider.js' %}"></script>
 
 {% endblock scripts %}
