@@ -21,11 +21,13 @@ export const countWeek = (week) => {
   }
 
   if (week > 6) {
+    console.log(week % 7);
     return {
       name: weekDays[week % 7],
       index: week % 7
     };
   }
+
   return {
     name: weekDays[(week % 7) * -1],
     index: (week % 7) * -1

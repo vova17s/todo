@@ -19,7 +19,7 @@ export class RenderCalendar {
     let dateData = [];
 
     let { index } = countWeek(
-      this.currentDate.getDay() - (this.currentDate.getDay() % 7) - 2
+      this.currentDate.getDay() + (this.currentDate.getDate() % 7) - 1
     );
 
     for (const _ of new Array(index)) {

@@ -51,8 +51,6 @@ const submitHandler = (event) => {
   let matchedDate = formData.getAll("plane_finished_date")[0].match(dateRegex);
   let matchedTime = formData.getAll("plane_finished_time")[0].match(timeRegex);
 
-  console.log(matchedDate, matchedTime);
-
   if (matchedDate === null) {
     alert("Неверный формат даты!");
     return;
