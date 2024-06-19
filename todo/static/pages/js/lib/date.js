@@ -1,45 +1,7 @@
-import { months, weekDays } from "../calendar/consts.js";
+import { months } from "../calendar/consts.js";
 
 export const getMonth = (date) => {
   const month = Object.keys(months)[date.getMonth()];
-  return {
-    month: month,
-    days: months[month]
-  };
-};
-
-/**
- *
- * @param {number} week
- **/
-export const countWeek = (week) => {
-  if (week >= 0 && 6 >= week) {
-    return {
-      name: weekDays[week],
-      index: week
-    };
-  }
-
-  if (week > 6) {
-    console.log(week % 7);
-    return {
-      name: weekDays[week % 7],
-      index: week % 7
-    };
-  }
-
-  return {
-    name: weekDays[(week % 7) * -1],
-    index: (week % 7) * -1
-  };
-};
-
-/**
- *
- * @param {Date} date
- **/
-export const getWeek = (date) => {
-  const month = Object.keys(months)[date.getDay() - 1];
   return {
     month: month,
     days: months[month]

@@ -1,10 +1,5 @@
 import { weekDays } from "../calendar/consts.js";
-import {
-  countWeek,
-  getMonth,
-  getNextDay,
-  getPreviousDay
-} from "../lib/date.js";
+import { getMonth, getNextDay, getPreviousDay } from "../lib/date.js";
 import { capitalize } from "../lib/text.js";
 
 export class RenderCalendar {
@@ -18,11 +13,11 @@ export class RenderCalendar {
     let previousDayCounter = 1;
     let dateData = [];
 
-    let { index } = countWeek(
-      this.currentDate.getDay() + (this.currentDate.getDate() % 7) - 1
-    );
+    const firstDayInMonth = new Date();
+    firstDayInMonth.setMonth(this.currentDate.getMonth());
+    firstDayInMonth.setDate(1);
 
-    for (const _ of new Array(index)) {
+    for (const _ of new Array(firstDayInMonth.getDay() - 1)) {
       const previousDayData = getPreviousDay(
         previousMonthCounter,
         previousDayCounter
